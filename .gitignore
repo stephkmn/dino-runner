@@ -1,0 +1,11 @@
+# Godot files
+*.import
+*.import*
+export_presets.cfg
+.user
+.editor
+.godot
+
+# OS files
+.DS_Store
+Thumbs.db

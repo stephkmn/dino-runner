@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://bve3voa6runx2"]
+
+[ext_resource type="Script" uid="uid://bmp86ufoqm3j5" path="res://scripts/main.gd" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dm03ta27hrs5l" path="res://scenes/parallax_background.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://c1tdeftxr8avf" path="res://scenes/ground.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://cep1ctpx5gq2g" path="res://scenes/dino.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bd10luxmoy2hs" path="res://scenes/hud.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://diu1y6chyatdn" path="res://scenes/game_over_screen.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dvojr6wvu6in2" path="res://scenes/wardrobe_screen.tscn" id="7_o6xl0"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_jyhfs")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_sugp2")]
+
+[node name="Ground" parent="." instance=ExtResource("2_jyhfs")]
+
+[node name="Dino" parent="." instance=ExtResource("3_tbgi4")]
+z_index = 1
+position = Vector2(141, 480)
+
+[node name="MainCam" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="HUD" parent="." instance=ExtResource("5_tbgi4")]
+
+[node name="GameOverScreen" parent="." instance=ExtResource("6_tefeu")]
+process_mode = 2
+
+[node name="WardrobeScreen" parent="." instance=ExtResource("7_o6xl0")]
+process_mode = 2

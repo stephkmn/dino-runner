@@ -1,0 +1,233 @@
+[gd_scene load_steps=15 format=3 uid="uid://dvojr6wvu6in2"]
+
+[ext_resource type="Script" uid="uid://7xvysfm3sm8k" path="res://scripts/wardrobe_screen.gd" id="1_flqyb"]
+[ext_resource type="Script" uid="uid://c1qfgwyk4o7hb" path="res://scripts/mort.gd" id="2_2cc2h"]
+[ext_resource type="SpriteFrames" uid="uid://uatwgctfvaqw" path="res://assets/sprite_frames/doux.tres" id="2_fow7e"]
+[ext_resource type="SpriteFrames" uid="uid://b6lmfnhkyeo2l" path="res://assets/sprite_frames/tard.tres" id="3_0gn4e"]
+[ext_resource type="SpriteFrames" uid="uid://dqgecipyu8hhr" path="res://assets/sprite_frames/mort.tres" id="3_2cc2h"]
+[ext_resource type="Script" uid="uid://jnxdumxl2vxm" path="res://scripts/doux.gd" id="4_8ioxw"]
+[ext_resource type="SpriteFrames" uid="uid://cbwqpqfcp064w" path="res://assets/sprite_frames/vita.tres" id="4_wtbcd"]
+[ext_resource type="FontFile" uid="uid://boivja777vups" path="res://assets/fonts/Retro Gaming.ttf" id="5_fow7e"]
+[ext_resource type="Script" uid="uid://g7amqgacaasp" path="res://scripts/tard.gd" id="6_drtup"]
+[ext_resource type="Script" uid="uid://dus6sak282ivt" path="res://scripts/vita.gd" id="8_ougxj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hobno"]
+bg_color = Color(0.97322303, 0.91555107, 0.73501384, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.45218438, 0.3393027, 0.17118269, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cc2h"]
+size = Vector2(941.5, 43.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0gn4e"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fow7e"]
+bg_color = Color(0.4509804, 0.3372549, 0.17254902, 1)
+
+[node name="WardrobeScreen" type="CanvasLayer"]
+script = ExtResource("1_flqyb")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -275.0
+offset_right = 480.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_hobno")
+
+[node name="Mort" type="CharacterBody2D" parent="."]
+position = Vector2(96, 79)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_2cc2h")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mort"]
+position = Vector2(-36, -59)
+polygon = PackedVector2Array(120, 273, 132, 261, 204, 261, 210, 267, 210, 315, 180, 315, 180, 357, 174, 363, 132, 363, 120, 345, 120, 327)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Mort"]
+texture_filter = 1
+position = Vector2(120, 250)
+scale = Vector2(6, 6)
+sprite_frames = ExtResource("3_2cc2h")
+animation = &"mort_run"
+autoplay = "mort_idle"
+
+[node name="Area2D" type="Area2D" parent="Mort"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Mort/Area2D"]
+position = Vector2(-36, -59)
+polygon = PackedVector2Array(120, 273, 132, 261, 204, 261, 210, 267, 210, 315, 180, 315, 180, 357, 174, 363, 132, 363, 120, 345, 120, 327)
+
+[node name="Doux" type="CharacterBody2D" parent="."]
+position = Vector2(96, 79)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_8ioxw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Doux"]
+position = Vector2(192, -65)
+polygon = PackedVector2Array(120, 279, 132, 267, 204, 267, 210, 273, 210, 315, 192, 315, 192, 363, 186, 369, 144, 369, 132, 351, 120, 297)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Doux"]
+texture_filter = 1
+position = Vector2(360, 250)
+scale = Vector2(6, 6)
+sprite_frames = ExtResource("2_fow7e")
+animation = &"doux_idle"
+autoplay = "doux_idle"
+
+[node name="Area2D" type="Area2D" parent="Doux"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Doux/Area2D"]
+position = Vector2(192, -65)
+polygon = PackedVector2Array(120, 279, 132, 267, 204, 267, 210, 273, 210, 315, 192, 315, 192, 363, 186, 369, 144, 369, 132, 351, 120, 297)
+
+[node name="Tard" type="CharacterBody2D" parent="."]
+position = Vector2(96, 79)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("6_drtup")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tard"]
+position = Vector2(412, -65)
+polygon = PackedVector2Array(120, 279, 132, 267, 204, 267, 210, 273, 210, 315, 192, 315, 192, 363, 186, 369, 145, 369, 132, 357, 120, 297)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tard"]
+texture_filter = 1
+position = Vector2(580, 250)
+scale = Vector2(6, 6)
+sprite_frames = ExtResource("3_0gn4e")
+animation = &"tard_idle"
+autoplay = "tard_idle"
+
+[node name="Area2D" type="Area2D" parent="Tard"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tard/Area2D"]
+position = Vector2(412, -65)
+polygon = PackedVector2Array(120, 279, 132, 267, 204, 267, 210, 273, 210, 315, 192, 315, 192, 363, 186, 369, 145, 369, 132, 357, 120, 297)
+
+[node name="Vita" type="CharacterBody2D" parent="."]
+position = Vector2(96, 79)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("8_ougxj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vita"]
+position = Vector2(632, -65)
+polygon = PackedVector2Array(120, 279, 132, 267, 204, 267, 210, 273, 210, 315, 192, 315, 192, 356, 180, 369, 144, 369, 132, 345, 120, 296)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Vita"]
+texture_filter = 1
+position = Vector2(800, 250)
+scale = Vector2(6, 6)
+sprite_frames = ExtResource("4_wtbcd")
+animation = &"vita_idle"
+autoplay = "vita_idle"
+
+[node name="Area2D" type="Area2D" parent="Vita"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vita/Area2D"]
+position = Vector2(632, -65)
+polygon = PackedVector2Array(120, 279, 132, 267, 204, 267, 210, 273, 210, 315, 192, 315, 192, 356, 180, 369, 144, 369, 132, 345, 120, 296)
+
+[node name="WardrobePlatform" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WardrobePlatform"]
+position = Vector2(576.25, 405.25)
+shape = SubResource("RectangleShape2D_2cc2h")
+
+[node name="CloseButton" type="Button" parent="."]
+offset_left = 986.0
+offset_top = 66.0
+offset_right = 1039.0
+offset_bottom = 119.0
+theme_override_colors/font_color = Color(0.4509804, 0.3372549, 0.17254902, 1)
+theme_override_fonts/font = ExtResource("5_fow7e")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_0gn4e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fow7e")
+text = "X"
+
+[node name="TitleLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = -207.0
+offset_right = 266.0
+offset_bottom = -149.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.4509804, 0.3372549, 0.17254902, 1)
+theme_override_fonts/font = ExtResource("5_fow7e")
+theme_override_font_sizes/font_size = 45
+text = "CHOOSE YOUR DINO!"
+
+[node name="MortName" type="Label" parent="."]
+offset_left = 185.0
+offset_top = 450.0
+offset_right = 262.0
+offset_bottom = 482.0
+theme_override_fonts/font = ExtResource("5_fow7e")
+theme_override_font_sizes/font_size = 25
+text = "MORT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DouxName" type="Label" parent="."]
+offset_left = 415.0
+offset_top = 450.0
+offset_right = 492.0
+offset_bottom = 482.0
+theme_override_fonts/font = ExtResource("5_fow7e")
+theme_override_font_sizes/font_size = 25
+text = "DOUX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TardName" type="Label" parent="."]
+offset_left = 637.0
+offset_top = 450.0
+offset_right = 714.0
+offset_bottom = 482.0
+theme_override_fonts/font = ExtResource("5_fow7e")
+theme_override_font_sizes/font_size = 25
+text = "TARD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VitaName" type="Label" parent="."]
+offset_left = 857.0
+offset_top = 450.0
+offset_right = 934.0
+offset_bottom = 482.0
+theme_override_fonts/font = ExtResource("5_fow7e")
+theme_override_font_sizes/font_size = 25
+text = "VITA"
+horizontal_alignment = 1
+vertical_alignment = 1

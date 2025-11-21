@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://dm03ta27hrs5l"]
+
+[ext_resource type="Texture2D" uid="uid://cfq28a6cb5ecw" path="res://assets/images/background/plx-1.png" id="1_bpahb"]
+[ext_resource type="Texture2D" uid="uid://487wrsiwmiet" path="res://assets/images/background/plx-2.png" id="2_qs7dk"]
+[ext_resource type="Texture2D" uid="uid://ql1d4cy61s74" path="res://assets/images/background/plx-3.png" id="3_2oy3k"]
+[ext_resource type="Texture2D" uid="uid://dv6yjppiiicat" path="res://assets/images/background/plx-4.png" id="4_jy56r"]
+[ext_resource type="Texture2D" uid="uid://f5d7npikpoh6" path="res://assets/images/background/plx-5.png" id="5_11q5a"]
+
+[node name="ParallaxBackground" type="Node2D"]
+
+[node name="ParallaxBg0" type="Parallax2D" parent="."]
+repeat_size = Vector2(1152, 0)
+
+[node name="GreenBackground" type="Sprite2D" parent="ParallaxBg0"]
+scale = Vector2(3, 3)
+texture = ExtResource("1_bpahb")
+centered = false
+
+[node name="ParallaxBg1" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.6, 1)
+repeat_size = Vector2(1152, 0)
+
+[node name="TreeBg1" type="Sprite2D" parent="ParallaxBg1"]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_qs7dk")
+centered = false
+
+[node name="ParallaxBg2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.7, 1)
+repeat_size = Vector2(1152, 0)
+
+[node name="TreeBg2" type="Sprite2D" parent="ParallaxBg2"]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("3_2oy3k")
+centered = false
+
+[node name="ParallaxBg3" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.8, 1)
+repeat_size = Vector2(1152, 0)
+
+[node name="TreeBg3" type="Sprite2D" parent="ParallaxBg3"]
+texture_filter = 2
+scale = Vector2(3, 3)
+texture = ExtResource("4_jy56r")
+centered = false
+
+[node name="ParallaxBg4" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.9, 1)
+scroll_offset = Vector2(384, 0)
+repeat_size = Vector2(1152, 0)
+repeat_times = 2
+
+[node name="TreeBg4" type="Sprite2D" parent="ParallaxBg4"]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("5_11q5a")
+centered = false
