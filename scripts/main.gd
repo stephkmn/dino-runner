@@ -17,8 +17,8 @@ const CAM_START_POS = Vector2i(576, 324)
 const GAME_COLLISION_LAYER = 1
 const WARDROBE_COLLISION_LAYER = 2
 
-const START_SPEED : float = 3.0
-const MAX_SPEED = 8.0
+const START_SPEED : float = 10.0
+const MAX_SPEED = 25.0
 const SCORE_MODIFIER = 10
 const SPEED_MODIFIER = 5000
 const MAX_DIFFICULTY: int = 3
@@ -90,6 +90,9 @@ func _process(delta: float) -> void:
 			speed = MAX_SPEED
 		
 		adjust_difficulty()
+
+		# hide cursor
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		
 		# move dino and camera
 		$Dino.position.x += speed
@@ -176,6 +179,7 @@ func game_over():
 	game_running = false
 	$GameOverScreen.show()
 	check_high_score()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 func setup_collision_layers():
 	# Configure main dino
