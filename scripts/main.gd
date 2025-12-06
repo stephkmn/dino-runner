@@ -90,6 +90,9 @@ func _process(delta: float) -> void:
 			speed = MAX_SPEED
 		
 		adjust_difficulty()
+
+		# hide cursor
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		
 		# move dino and camera
 		$Dino.position.x += speed
@@ -176,6 +179,7 @@ func game_over():
 	game_running = false
 	$GameOverScreen.show()
 	check_high_score()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 func setup_collision_layers():
 	# Configure main dino
