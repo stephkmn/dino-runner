@@ -17,8 +17,8 @@ const CAM_START_POS = Vector2i(576, 324)
 const GAME_COLLISION_LAYER = 1
 const WARDROBE_COLLISION_LAYER = 2
 
-const START_SPEED : float = 3.0
-const MAX_SPEED = 8.0
+const START_SPEED : float = 10.0
+const MAX_SPEED = 25.0
 const SCORE_MODIFIER = 10
 const SPEED_MODIFIER = 5000
 const MAX_DIFFICULTY: int = 3
